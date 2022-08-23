@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.game.Animation;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,7 +9,6 @@ public class MyAnimation {
     private Texture img;
     private Animation<TextureRegion> animation;
     private float time;
-
     public MyAnimation(String nameImg, int col, int row, Animation.PlayMode playMode) {
         img = new Texture(nameImg);
 

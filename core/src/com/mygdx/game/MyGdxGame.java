@@ -2,21 +2,15 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextArea;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.mygdx.game.Animation.MyAnimation;
 
 public class MyGdxGame extends ApplicationAdapter {
 	private SpriteBatch batch;
 
-	private Texture img;
 	private int clk;
 	private MyAnimation animation;
 	private boolean dir = true;
@@ -75,46 +69,46 @@ public class MyGdxGame extends ApplicationAdapter {
 			}
 		}
 	}
-//
-//	private void checkPressButton(){
-//		if(Gdx.input.isKeyJustPressed(Input.Keys.LEFT)){
-//			dir = false;
-//		};
-//		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT )){
-//			dir = true;
-//		};
-//
-//		if(animation.getFrame().isFlipX() && !dir){
-//			animation.getFrame().flip(true, false);
-//		}
-//		if(!animation.getFrame().isFlipX() && dir){
-//			animation.getFrame().flip(true, false);
-//		}
-//	}
-//
-//	private void flyPressButton(){
-//		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-//			animation.setTime(Gdx.graphics.getDeltaTime());
-//			dir = false;
-//			xDir -= xDirValue;
-//			if(xDir <= 0){
-//				xDir = 0;
-//			}
-//		};
-//		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT )){
-//			animation.setTime(Gdx.graphics.getDeltaTime());
-//			dir = true;
-//			xDir += xDirValue;
-//			if(xDir >= Gdx.graphics.getWidth() - animation.getFrame().getRegionWidth()){
-//				xDir = Gdx.graphics.getWidth() - animation.getFrame().getRegionWidth();
-//			}
-//		};
-//
-//		if(animation.getFrame().isFlipX() && !dir){
-//			animation.getFrame().flip(true, false);
-//		}
-//		if(!animation.getFrame().isFlipX() && dir){
-//			animation.getFrame().flip(true, false);
-//		}
-//	}
+
+	private void checkPressButton(){
+		if(Gdx.input.isKeyJustPressed(Input.Keys.LEFT)){
+			dir = false;
+		};
+		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT )){
+			dir = true;
+		};
+
+		if(animation.getFrame().isFlipX() && !dir){
+			animation.getFrame().flip(true, false);
+		}
+		if(!animation.getFrame().isFlipX() && dir){
+			animation.getFrame().flip(true, false);
+		}
+	}
+
+	private void flyPressButton(){
+		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+			animation.setTime(Gdx.graphics.getDeltaTime());
+			dir = false;
+			xDir -= xDirValue;
+			if(xDir <= 0){
+				xDir = 0;
+			}
+		};
+		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT )){
+			animation.setTime(Gdx.graphics.getDeltaTime());
+			dir = true;
+			xDir += xDirValue;
+			if(xDir >= Gdx.graphics.getWidth() - animation.getFrame().getRegionWidth()){
+				xDir = Gdx.graphics.getWidth() - animation.getFrame().getRegionWidth();
+			}
+		};
+
+		if(animation.getFrame().isFlipX() && !dir){
+			animation.getFrame().flip(true, false);
+		}
+		if(!animation.getFrame().isFlipX() && dir){
+			animation.getFrame().flip(true, false);
+		}
+	}
 }
