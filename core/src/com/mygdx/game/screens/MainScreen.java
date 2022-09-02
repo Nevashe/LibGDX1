@@ -33,7 +33,7 @@ public class MainScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(1, 1, 1, 1);
+        ScreenUtils.clear(0, 1, 1, 1);
 
         int xStartButton = Gdx.graphics.getWidth()/2-startButton.getRegionWidth()/2;
 
