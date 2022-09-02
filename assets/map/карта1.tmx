@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="31" height="11" tilewidth="160" tileheight="160" infinite="0" nextlayerid="5" nextobjectid="7">
+ <tileset firstgid="1" name="00c83b8493a9d5cb4a6bed06fd47c891" tilewidth="160" tileheight="160" spacing="2" tilecount="36" columns="6">
+  <image source="00c83b8493a9d5cb4a6bed06fd47c891.png" width="970" height="970"/>
+  <tile id="17">
+   <animation>
+    <frame tileid="20" duration="150"/>
+    <frame tileid="19" duration="150"/>
+   </animation>
+  </tile>
+ </tileset>
+ <layer id="1" name="Слой тайлов 1" width="31" height="11" offsetx="-144" offsety="328">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgYANiHiCWJwPLArEcwygYCUBkiNpLrn5RLGJCWDAp+vEBZiDmA2JOEvUR0g8Tx4d5kTCyOCcF+kcqAACehwRY
+  </data>
+ </layer>
+ <objectgroup id="4" name="objects">
+  <object id="3" x="368" y="1480">
+   <point/>
+  </object>
+  <object id="4" name="camera" x="1784" y="784">
+   <point/>
+  </object>
+  <object id="5" name="zone" x="8" y="8" width="4960" height="1768"/>
+ </objectgroup>
+ <layer id="3" name="фон" width="31" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjZWBgYB2BeBSMglEwCmgBAOWbATc=
+  </data>
+ </layer>
+</map>
