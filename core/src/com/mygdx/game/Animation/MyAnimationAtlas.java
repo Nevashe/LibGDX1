@@ -41,6 +41,9 @@ public class MyAnimationAtlas {
     public void updateAnimation(MoveAnimation move, Animation.PlayMode playMode){
         this.move = move;
         animation = new Animation<TextureRegion>(1/20f,atlas.findRegions(move.name()));
+        if(move.equals(MoveAnimation.Jump)) {
+            animation.setFrameDuration(1 / 5f);
+        }
         animation.setPlayMode(playMode);
     }
 
