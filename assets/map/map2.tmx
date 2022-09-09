@@ -63,7 +63,7 @@
     <property name="restitution" type="float" value="0"/>
    </properties>
   </object>
-  <object id="8" name="obj" x="224.667" y="320.667" width="47" height="15">
+  <object id="8" name="obj" x="224.667" y="320.667" width="47" height="10">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
@@ -180,10 +180,10 @@
   </object>
  </objectgroup>
  <objectgroup id="5" name="setting">
-  <object id="14" name="hero" x="30" y="336.5" width="9.04545" height="15.5">
+  <object id="14" name="hero" x="22.0833" y="335.292" width="9.04545" height="15.5">
    <properties>
     <property name="BodyType" value="DynamicBody"/>
-    <property name="gravityScale" type="float" value="30"/>
+    <property name="gravityScale" type="float" value="1"/>
     <property name="restitution" type="float" value="0"/>
    </properties>
   </object>
