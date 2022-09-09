@@ -12,6 +12,7 @@ public class PhysX {
 
     public PhysX(){
         world = new World(new Vector2(0, -9.81f), true);
+        world.setContactListener(new MyContList());
         debugRenderer = new Box2DDebugRenderer();
     }
 
@@ -23,17 +24,30 @@ public class PhysX {
         def.type = BodyDef.BodyType.valueOf(String.valueOf(object.getProperties().get("BodyType", Integer.class)));
         def.position.set(r.x + r.getWidth()/2, r.y + r.getHeight()/2);
         def.gravityScale = object.getProperties().get("gravityScale", Float.class);
-
-        polygonShape.setAsBox(r.getWidth()/2, r.getHeight()/2);
+        float x = r.getWidth()/2;
+        float y = r.getHeight()/2;
+        polygonShape.setAsBox(x, y);
 
         fdef.shape = polygonShape;
         fdef.friction = 0;
+
         fdef.density = 1;
         fdef.restitution = object.getProperties().get("restitution", Float.class);
 
         Body body;
         body = world.createBody(def);
-        body.createFixture(fdef).setUserData("s");
+        String name = object.getName();
+
+        body.createFixture(fdef).setUserData(name);
+        if(name!= null){
+            if(name.equals("hero")){
+                body.setFixedRotation(true);
+                polygonShape.setAsBox(x/2, y/60, new Vector2(0, -y), 0);
+                body.createFixture(fdef).setUserData("foot");
+                body.getFixtureList().get(body.getFixtureList().size-1).setSensor(true);
+            }
+        }
+
 
         polygonShape.dispose();
 
@@ -50,6 +64,10 @@ public class PhysX {
 
     public void debugDraw(OrthographicCamera camera){
         debugRenderer.render(world,camera.combined);
+    }
+
+    public void deleteBody(Body body){
+        world.destroyBody(body);
     }
 
     public void dispose(){

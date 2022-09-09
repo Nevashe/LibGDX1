@@ -3,6 +3,8 @@ package com.mygdx.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
@@ -11,12 +13,14 @@ import com.mygdx.game.Animation.MyAnimationAtlas;
 import com.mygdx.game.Main;
 
 public class MainScreen implements Screen {
-    private Main main;
-    private SpriteBatch batch;
-    private MyAnimationAtlas animationAtlas;
-    private Rectangle rectStart;
-    private TextureAtlas.AtlasRegion startButton;
-    private TextureAtlas.AtlasRegion icon;
+    private final Main main;
+    private final SpriteBatch batch;
+    private final MyAnimationAtlas animationAtlas;
+    private final Rectangle rectStart;
+    private final TextureAtlas.AtlasRegion startButton;
+    private final TextureAtlas.AtlasRegion icon;
+    private final Music music;
+    private final Sound sound;
     public MainScreen(Main main) {
         this.main = main;
         batch = new SpriteBatch();
@@ -24,6 +28,14 @@ public class MainScreen implements Screen {
         startButton = animationAtlas.getAtlas().findRegion("start");
         icon = animationAtlas.getAtlas().findRegion("icon");
         rectStart = animationAtlas.getAtlas().createSprite("start").getBoundingRectangle();
+
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/Star_Wars_-_Cantina_Band_72337703.mp3"));
+        music.setVolume(0.1f);
+        music.setLooping(true);
+        music.play();
+
+        sound = Gdx.audio.newSound(Gdx.files.internal("sound/minecraft-death-sound.mp3"));
+
     }
 
     @Override
@@ -72,6 +84,8 @@ public class MainScreen implements Screen {
     public void dispose() {
         batch.dispose();
         animationAtlas.dispose();
+        music.dispose();
+        sound.dispose();
     }
 
     private void checkNewScreen(){
@@ -81,6 +95,8 @@ public class MainScreen implements Screen {
             if(rectStart.contains(x,y)){
                 dispose();
                 main.setScreen(new GameScreen(main));
+            }else {
+                sound.play();
             }
         }
     }
