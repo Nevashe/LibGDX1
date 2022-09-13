@@ -24,6 +24,8 @@ import com.mygdx.game.PhysX;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mygdx.game.PhysX.PPM;
+
 public class GameScreen implements Screen {
 
     private Main main;
@@ -73,7 +75,7 @@ public class GameScreen implements Screen {
         map = new TmxMapLoader().load("map/map2.tmx");
         mapRenderer = new OrthogonalTiledMapRenderer(map);
 
-        camera.zoom = 0.5f;
+        camera.zoom = 0.3f;
         bg = new int[1];
         bg[0] = map.getLayers().getIndex("back");
         l1 = new int[1];
@@ -91,8 +93,8 @@ public class GameScreen implements Screen {
         body = physX.addObject(rmo);
 
         heroRect = rmo.getRectangle();
-        camera.position.x = body.getPosition().x;
-        camera.position.y = body.getPosition().y;
+        camera.position.x = body.getPosition().x*PPM;
+        camera.position.y = body.getPosition().y*PPM;
 
         bodies = new ArrayList<>();
 
@@ -113,8 +115,8 @@ public class GameScreen implements Screen {
     @Override
     public void render(float delta) {
         ScreenUtils.clear(1, 1, 1, 1);
-        camera.position.x = body.getPosition().x;
-        camera.position.y = body.getPosition().y;
+        camera.position.x = xDir;
+        camera.position.y = yDir;
         camera.update();
         animationAtlas.setTime(delta);
 
@@ -128,11 +130,11 @@ public class GameScreen implements Screen {
 
         float widthHero = heroRect.height * (((float) animationAtlas.getFrame().getRegionWidth() / (float) animationAtlas.getFrame().getRegionHeight()));
 
-        xDir = body.getPosition().x - widthHero / 2;
-        yDir = body.getPosition().y - heroRect.height / 2;
+        xDir = (body.getPosition().x*PPM - widthHero / 2);
+        yDir = (body.getPosition().y*PPM - heroRect.height / 2);
+
         batch.begin();
         batch.draw(animationAtlas.getFrame(), xDir, yDir, widthHero, heroRect.height);
-        batch.draw(close, xClose, yClose, close.originalWidth, close.originalHeight);
         batch.end();
         batch.setProjectionMatrix(camera.combined);
         mapRenderer.render(l1);
@@ -189,7 +191,7 @@ public class GameScreen implements Screen {
         float y;
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.W)  && doubleJump != 2) {
-            y = 100000000;
+            y = 2;
             animationAtlas.updateAnimation(MoveAnimation.Jump, Animation.PlayMode.LOOP);
             idle = false;
             jump = true;
@@ -209,14 +211,14 @@ public class GameScreen implements Screen {
             if(!jump){
                 animationAtlas.updateAnimation(MoveAnimation.Run, Animation.PlayMode.LOOP);
             }
-            x = -100000;
+            x = -0.05f;
             idle = false;
             dir = false;
         } else if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             if(!jump) {
                 animationAtlas.updateAnimation(MoveAnimation.Run, Animation.PlayMode.LOOP);
             }
-            x = 100000;
+            x = 0.05f;
             idle = false;
             dir = true;
         } else {

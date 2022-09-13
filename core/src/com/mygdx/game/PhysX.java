@@ -9,7 +9,7 @@ import com.badlogic.gdx.physics.box2d.*;
 public class PhysX {
     private final World world;
     private final Box2DDebugRenderer debugRenderer;
-
+    public final static float PPM = 100;
     public PhysX(){
         world = new World(new Vector2(0, -9.81f), true);
         world.setContactListener(new MyContList());
@@ -22,10 +22,10 @@ public class PhysX {
         PolygonShape polygonShape = new PolygonShape();
         Rectangle r = object.getRectangle();
         def.type = BodyDef.BodyType.valueOf(String.valueOf(object.getProperties().get("BodyType", Integer.class)));
-        def.position.set(r.x + r.getWidth()/2, r.y + r.getHeight()/2);
+        def.position.set((r.x + r.getWidth()/2)/PPM, (r.y + r.getHeight()/2)/PPM);
         def.gravityScale = object.getProperties().get("gravityScale", Float.class);
-        float x = r.getWidth()/2;
-        float y = r.getHeight()/2;
+        float x = r.getWidth()/2/PPM;
+        float y = r.getHeight()/2/PPM;
         polygonShape.setAsBox(x, y);
 
         fdef.shape = polygonShape;
