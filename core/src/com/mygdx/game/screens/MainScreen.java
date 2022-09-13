@@ -94,10 +94,11 @@ public class MainScreen implements Screen {
             float y = Gdx.graphics.getHeight() - Gdx.input.getY();
             if(rectStart.contains(x,y)){
                 dispose();
-                main.setScreen(new GameScreen(main));
+                main.setScreen(new GameScreen(main, "map/map2.tmx"));
             }else {
                 sound.play();
             }
         }
     }
+
 }
