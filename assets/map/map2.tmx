@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="18" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="26">
+<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="18" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="39">
  <tileset firstgid="1" name="temple-tileset" tilewidth="16" tileheight="16" tilecount="80" columns="10">
   <image source="temple-tileset.png" width="160" height="128"/>
  </tileset>
@@ -10,7 +10,7 @@
  </layer>
  <layer id="1" name="board" width="18" height="24">
   <data encoding="base64" compression="zlib">
-   eJyTYGBgkKQQSwGxEgPlQGUImiNLBXNkqWQOsQCbOcTYT6w5jEDMBMTMQMwCxKxAzAbE7CSYQw6AmcMJxFxUMIda7qG2OUJo8uh8eruHEOBmwJ4WBms4E5N+ORhwp7HB4C+Q+2D5gNruEQViMTKxONQcHSDWpRDrATEAyk8Nog==
+   eJyTYGBgkKQQSwGxEgPlQGUImiNLgjkCQCyIwwxs5jACMRMQMwMxC5HuIQZgM4cYfxBrDrq7WYGYDYjZSTCHVMCBZA4nEHNRYNZgT4dCaPLofHq7hxDgZsCeFgZrOBOTfkHpDVcaGwz+ArkPlg+o7R5RIBYjE4tDzdEBYl0KsR4QAwDMxg3V
   </data>
  </layer>
  <objectgroup id="4" name="objectBoard">
@@ -112,9 +112,30 @@
     <property name="restitution" type="float" value="0"/>
    </properties>
   </object>
+  <object id="26" name="obj" x="256.5" y="145.333" width="15" height="14">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="restitution" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="27" name="obj" x="208.167" y="80.6667" width="63" height="14">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="restitution" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="28" name="obj" x="16.1667" y="81" width="32.3333" height="14">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="restitution" type="float" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="6" name="objectDanger">
-  <object id="16" x="16" y="192.087">
+  <object id="16" name="d" x="16" y="192.087">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
@@ -122,7 +143,7 @@
    </properties>
    <polygon points="0,0 0,15.913 16.0435,8.17391"/>
   </object>
-  <object id="17" x="16.1818" y="207.909">
+  <object id="17" name="d" x="16.1818" y="207.909">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
@@ -130,7 +151,7 @@
    </properties>
    <polygon points="0,0 0,15.913 16.0435,8.17391"/>
   </object>
-  <object id="18" x="16.2727" y="224.178">
+  <object id="18" name="d" x="16.2727" y="224.178">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
@@ -138,7 +159,7 @@
    </properties>
    <polygon points="0,0 0,15.913 16.0435,8.17391"/>
   </object>
-  <object id="19" x="16.4545" y="240">
+  <object id="19" name="d" x="16.4545" y="240">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
@@ -146,7 +167,7 @@
    </properties>
    <polygon points="0,0 0,15.913 16.0435,8.17391"/>
   </object>
-  <object id="20" x="16.2727" y="256.269">
+  <object id="20" name="d" x="16.2727" y="256.269">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
@@ -154,7 +175,7 @@
    </properties>
    <polygon points="0,0 0,15.913 16.0435,8.17391"/>
   </object>
-  <object id="21" x="16.4545" y="272.091">
+  <object id="21" name="d" x="16.4545" y="272.091">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
@@ -162,27 +183,57 @@
    </properties>
    <polygon points="0,0 0,15.913 16.0435,8.17391"/>
   </object>
-  <object id="22" x="128.016" y="352.064" rotation="270.34">
+  <object id="37" name="d" x="127.667" y="351.333">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
     <property name="restitution" type="float" value="0"/>
    </properties>
-   <polygon points="0,0 0,15.913 16.0435,8.17391"/>
+   <polygon points="0,0 16,0 8,-15.3333"/>
   </object>
-  <object id="23" x="207.838" y="351.726" rotation="270.34">
+  <object id="38" name="d" x="208" y="351.333">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
     <property name="restitution" type="float" value="0"/>
    </properties>
-   <polygon points="0,0 0,15.913 16.0435,8.17391"/>
+   <polygon points="0,0 16,0 8,-15.3333"/>
   </object>
  </objectgroup>
  <objectgroup id="5" name="setting">
   <object id="14" name="hero" x="22.0833" y="335.292" width="9.04545" height="15.5">
    <properties>
     <property name="BodyType" value="DynamicBody"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="restitution" type="float" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="reward">
+  <object id="33" name="key" x="257.5" y="130.833" width="13.3337" height="13.3333">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="restitution" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="34" name="key" x="17.8332" y="65.8332" width="13.3337" height="13.3333">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="restitution" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="35" name="key" x="33.8332" y="273.5" width="13.3337" height="13.3333">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="restitution" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="36" name="box" x="241.167" y="66.1665" width="13.3337" height="13.3333">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
     <property name="gravityScale" type="float" value="1"/>
     <property name="restitution" type="float" value="0"/>
    </properties>
